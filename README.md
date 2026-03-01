@@ -35,7 +35,17 @@ I focus on writing clean, efficient code and continuously improving my technical
 
 ---
 
+## 📂 Featured Projects  
 
+### 📱 Food Tracking Android App  
+A multi-user Android application that allows users to track daily meals and monitor effects like mood, energy, and digestion.  
+
+**Features:**  
+- User authentication system  
+- Database integration  
+- Personalized diet suggestions  
+
+---
 
 ### 🌐 Personal Portfolio Website  
 A responsive portfolio website showcasing projects, skills, and contact information with clean UI design.
@@ -48,6 +58,7 @@ To secure an opportunity as a Software Developer where I can apply my technical 
 ---
 
 ## 📫 Connect With Me  
-- GitHub: https://github.com/yourusername  
-- LinkedIn: https://linkedin.com/in/yourusername  
-- Email: your.email@example.com
+
+- 🔗 GitHub: [https://github.com/Piyush786-coder](https://github.com/Piyush786-coder)  
+- 💼 LinkedIn: https://linkedin.com/in/piyush-jha  
+- 📧 Email: [jhap54862@gmail.com](mailto:jhap54862@gmail.com)
