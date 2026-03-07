@@ -1,18 +1,9 @@
 const links = document.querySelectorAll(".link");
-const sections = document.querySelectorAll("section");
 
-let activeLink = 0;
-
-links.forEach((link, i) => {
+links.forEach(link => {
   link.addEventListener("click", () => {
     links.forEach(l => l.classList.remove("active"));
     link.classList.add("active");
-
-    sections.forEach(sec => sec.classList.remove("active"));
-
-    setTimeout(() => {
-      sections[i].classList.add("active");
-    }, 200);
   });
 });
 
