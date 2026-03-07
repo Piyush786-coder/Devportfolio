@@ -8,18 +8,19 @@ overflow-x:hidden;
 padding-top:80px;
 }
 section{
-  scroll-margin-top:140px;
+min-height:100vh;
+padding:90px 8%;
+scroll-margin-top:100px;
 }
-#skills{
-  padding-top:140px;
-}
+
+/* Remove extra spacing */
 #home,
 #skills,
 #project,
 #certificates,
 #resume,
 #contacts{
-padding-top:120px;
+padding-top:90px;
 }
 /* ================= PERFECT FIT NAVBAR ================= */
 
