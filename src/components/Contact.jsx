@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import emailjs from '@emailjs/browser';
 
 const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
@@ -9,12 +9,20 @@ export default function Contact() {
   const formRef = useRef(null);
   const [status, setStatus] = useState('idle');
 
+  useEffect(() => {
+    if (PUBLIC_KEY) {
+      emailjs.init({ publicKey: PUBLIC_KEY });
+    }
+  }, []);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!formRef.current) return;
 
     if (!PUBLIC_KEY || !SERVICE_ID || !TEMPLATE_ID) {
-      alert('Email is not configured. Add VITE_EMAILJS_* variables to your .env file.');
+      alert(
+        'EmailJS setup missing. Project root mein .env file bana kar VITE_EMAILJS_PUBLIC_KEY, VITE_EMAILJS_SERVICE_ID, VITE_EMAILJS_TEMPLATE_ID add karein. (See .env.example)'
+      );
       return;
     }
 
@@ -22,13 +30,23 @@ export default function Contact() {
     emailjs
       .sendForm(SERVICE_ID, TEMPLATE_ID, formRef.current, { publicKey: PUBLIC_KEY })
       .then(() => {
-        alert('Message Sent Successfully!');
+        alert('Message sent! Aapko Gmail par email mil jayegi.');
         formRef.current?.reset();
         setStatus('idle');
       })
       .catch((err) => {
         console.error(err);
-        alert('Failed to send message.');
+        const msg =
+          typeof err?.text === 'string'
+            ? err.text
+            : typeof err?.message === 'string'
+              ? err.message
+              : '';
+        alert(
+          msg
+            ? `Message send nahi ho saka: ${msg}`
+            : 'Message send nahi ho saka. EmailJS dashboard mein Gmail service aur template check karein.'
+        );
         setStatus('idle');
       });
   };
